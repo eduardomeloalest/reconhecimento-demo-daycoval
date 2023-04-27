@@ -1,0 +1,56 @@
+{
+  "root": true,
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "plugin:@typescript-eslint/recommended",
+    "airbnb-base",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": ["functions/tsconfig.json", "functions/tsconfig.dev.json"],
+    "sourceType": "module",
+    "ecmaVersion": 12
+  },
+  "ignorePatterns": [
+    "/lib/**/*" // Ignore built files.
+  ],
+  "plugins": ["@typescript-eslint", "import", "prettier"],
+  "rules": {
+    "camelcase":"off",
+    "no-await-in-loop":"off",
+    "no-use-before-define":"off",
+    "no-return-await": "warn",
+    "no-unused-vars": "warn",
+    "prefer-destructuring": "warn",
+    "@typescript-eslint/no-unused-vars": "off",
+    "no-shadow": "off",
+    "import/prefer-default-export": "off",
+    "import/no-unresolved": 0,
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never"
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  }
+}
